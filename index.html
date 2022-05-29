@@ -4,17 +4,32 @@
     <link rel="stylesheet" href="./Assets/css/style.css">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Frontend Quiz!</title>
+    <title>Programming Quiz!</title>
   </head>
+
   <body>
-    <div id="timer"></div>
+    <div class="highscores"><a href="highscore.html">View Highscores</a></div>
+    <div id="timer">Time Remaining: <span id="timer">0</span></div>
 
-    <div id="question"></div>
+    <div class="quiz">
+      <div id="questions" class="hide">
+        <h2 id="question-title"></h2>
+        <div id="choices" class="choices"></div>
+      </div>
+      <div id="end" class="hide">
+        <h2>Well Done!</h2>
+        <p>Your total score is <span id=total-score></span>.</p>
+        <p>
+          Please enter your initials: <input type="text" id="initials" max="3"/>
+          <button id="submit">Submit</button>
+        </p>
+      </div> 
+        <div id="question-result" class="result hide"></div>
 
-    <ul id="option-list"></ul>
+    </div>
 
-    <div id="question-result"></div>
-
+    <script src="./Assets/js/questions.js"></script>
     <script src="./Assets/js/script.js"></script>
+    
   </body>
 </html>

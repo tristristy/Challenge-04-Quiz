@@ -1,29 +1,23 @@
 //This script was given as starter code by the instructor
 
-var questions = [
-  {
-    question: "Commonly used data types DO NOT include:",
-    choices: ["strings", "booleans", "alerts", "numbers"],
-    answer: "alerts",
-  },
-  {
-    question:
-      "The condition in an if / else statement is enclosed within ____.",
-    choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
-    answer: "parentheses",
-  },
-];
+//variables that reference DOM Ids
+var questionsEl = document.getElementById("questions");
+var choicesE1 = document.getElementById("choices");
+var questionResultEl = document.getElementById("question-result");
+var timerEl = document.getElementById("timer");
+var startButton = document.getElementById("start");
+var submitButton = document.getElementById("submit");
+var initialsE1 = document.getElementById("initials");
 
-var questionEl = document.querySelector("#question");
-var optionListEl = document.querySelector("#option-list");
-var questionResultEl = document.querySelector("#question-result");
-var timerEl = document.querySelector("#timer");
 
 var questionIndex = 0;
 var correctCount = 0;
-
-var time = 20;
+var time = questions.length * 10;
 var intervalId;
+
+function startQuiz() {
+
+}
 
 function endQuiz() {
   clearInterval(intervalId);
@@ -54,9 +48,9 @@ function renderQuestion() {
   questionResultEl.innerHTML = "";
 
   var choices = questions[questionIndex].choices;
-  var choicesLenth = choices.length;
+  var choicesLength = choices.length;
 
-  for (var i = 0; i < choicesLenth; i++) {
+  for (var i = 0; i < choicesLength; i++) {
     var questionListItem = document.createElement("li");
     questionListItem.textContent = choices[i];
     optionListEl.append(questionListItem);
@@ -88,4 +82,5 @@ function checkAnswer(event) {
 }
 
 renderQuestion();
+
 optionListEl.addEventListener("click", checkAnswer);
