@@ -2,9 +2,10 @@
 
 //variables that reference DOM Ids
 var questionsEl = document.getElementById("questions");
+var questionTitleE1 = document.getElementById("question-title");
 var choicesE1 = document.getElementById("choices");
 var questionResultEl = document.getElementById("question-result");
-var timerEl = document.getElementById("timer");
+var timerEl = document.getElementById("time");
 var startButton = document.getElementById("start");
 var submitButton = document.getElementById("submit");
 var initialsE1 = document.getElementById("initials");
@@ -17,6 +18,16 @@ var intervalId;
 
 function startQuiz() {
 
+  //hide main screen
+  var startingScreenE1 = document.getElementById("start")
+
+  //unhide questions
+
+  questionsEl.removeAttribute("class");
+
+  timerEl.textContent = time;
+
+  renderQuestion();
 }
 
 function endQuiz() {
@@ -42,18 +53,18 @@ function renderQuestion() {
 
   intervalId = setInterval(updateTime, 1000);
   
-  questionEl.textContent = questions[questionIndex].question;
+  questionTitleE1.textContent = questions[questionIndex].question;
 
-  optionListEl.innerHTML = "";
+  choicesE1.innerHTML = "";
   questionResultEl.innerHTML = "";
 
   var choices = questions[questionIndex].choices;
   var choicesLength = choices.length;
 
   for (var i = 0; i < choicesLength; i++) {
-    var questionListItem = document.createElement("li");
+    var questionListItem = document.createElement("button");
     questionListItem.textContent = choices[i];
-    optionListEl.append(questionListItem);
+    choicesE1.append(questionListItem);
   }
 }
 
@@ -83,4 +94,6 @@ function checkAnswer(event) {
 
 renderQuestion();
 
-optionListEl.addEventListener("click", checkAnswer);
+choicesE1.addEventListener("click", checkAnswer);
+
+startButton.onclick = startQuiz();

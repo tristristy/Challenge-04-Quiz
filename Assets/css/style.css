@@ -14,10 +14,22 @@ button {
 
 }
 
+.quiz {
+    margin: 100px auto 0 auto;
+    max-width: 700px;
+}
+
+
 .choices button {
     display: block;
 }
 
 .hide {
     display: none;
+}
+
+.timer {
+    position: absolute;
+    top: 10px;
+    right: 20px;
 }

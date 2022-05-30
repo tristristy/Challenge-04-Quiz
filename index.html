@@ -9,9 +9,20 @@
 
   <body>
     <div class="highscores"><a href="highscore.html">View Highscores</a></div>
-    <div id="timer">Time Remaining: <span id="timer">0</span></div>
+    <div class="timer">Time Remaining: <span id="time">0</span></div>
 
     <div class="quiz">
+      <div id="starting-screen" class="start">
+        <h1>Programming Quiz Challenge</h1>
+        <p>
+          Try to answer all of the programming based questions within the time limit
+          Understand that incorrect answers will deduct time and score by 10 seconds!
+        </p>
+        <button id="start">Start Quiz!</button>
+      </div>
+
+
+
       <div id="questions" class="hide">
         <h2 id="question-title"></h2>
         <div id="choices" class="choices"></div>
