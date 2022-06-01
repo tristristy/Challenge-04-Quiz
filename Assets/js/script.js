@@ -35,6 +35,12 @@ function endQuiz() {
   clearInterval(intervalId);
   var body = document.body;
   body.innerHTML = "Game over, You scored " + correctCount;
+
+  var endScreen = document.getElementById("end");
+  endScreen.removeAttribute("class");
+
+  questionsEl.setAttribute("class", "hide");
+
 }
 
 function updateTime() {
@@ -51,7 +57,7 @@ function renderQuestion() {
     updateTime();
     return;
   }
-
+ 
   intervalId = setInterval(updateTime, 1000);
   
   questionTitleE1.textContent = questions[questionIndex].question;
@@ -66,7 +72,10 @@ function renderQuestion() {
     var questionListItem = document.createElement("button");
     questionListItem.textContent = choices[i];
     choicesE1.append(questionListItem);
-  }
+  } 
+  if (questionIndex == questions.length){
+    endQuiz();
+  };
 }
 
 function nextQuestion() {
@@ -86,7 +95,7 @@ function checkAnswer(event) {
       correctCount++;
     } else {
       questionResultEl.textContent = "Incorrect";
-      time = time - 2;
+      time = time - 10;
       timerEl.textContent = time;
     }
   }
