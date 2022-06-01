@@ -19,12 +19,13 @@ var intervalId;
 function startQuiz() {
 
   //hide main screen
-  var startingScreenE1 = document.getElementById("start")
-
+  var startingScreenE1 = document.getElementById("starting-screen")
+  startingScreenE1.setAttribute("class", "hide");
   //unhide questions
 
   questionsEl.removeAttribute("class");
 
+  
   timerEl.textContent = time;
 
   renderQuestion();
@@ -92,8 +93,8 @@ function checkAnswer(event) {
   setTimeout(nextQuestion, 2000);
 }
 
-renderQuestion();
+
 
 choicesE1.addEventListener("click", checkAnswer);
 
-startButton.onclick = startQuiz();
+startButton.onclick = startQuiz;
